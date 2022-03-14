@@ -10,9 +10,13 @@ public class Libretto {
 		this.voti = new ArrayList<Voto>();
 	}
 	
-	public void add(Voto v) {
-		if(!this.isDuplicato(v) && !this.isConflitto(v))
+	public boolean add(Voto v) {
+		if(!this.isDuplicato(v) && !this.isConflitto(v)) {
 			this.voti.add(v);
+			return true;
+		}
+		
+		return false;
 	}
 
 	/**
@@ -111,6 +115,10 @@ public class Libretto {
 				lib.add(v);
 		
 		return lib;
+	}
+	
+	public List<Voto> getVoti() {
+		return this.voti;
 	}
 	
 	@Override
