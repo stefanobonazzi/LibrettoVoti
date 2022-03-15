@@ -107,14 +107,14 @@ public class Libretto {
 		return lib;
 	}
 	
-	public Libretto cancellaVotiMinodiDi(int i) {
-		Libretto lib = new Libretto();
+	public void cancellaVotiMinodiDi(int i) {
+		for(int cnt=0; cnt<this.voti.size(); cnt++) {
+			if(this.voti.get(cnt).getPunti() < i) {
+				this.voti.remove(cnt);
+				cnt--;
+			}
+		}
 		
-		for(Voto v: this.voti)
-			if(v.getPunti() >= 24)
-				lib.add(v);
-		
-		return lib;
 	}
 	
 	public List<Voto> getVoti() {

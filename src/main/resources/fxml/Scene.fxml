@@ -37,6 +37,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Nome esame" />
@@ -44,6 +45,9 @@
                   <TextField fx:id="txtNome" GridPane.columnIndex="1" />
                   <ComboBox fx:id="cmbPunti" prefHeight="26.0" prefWidth="95.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button mnemonicParsing="false" onAction="#handleNuovoVoto" text="Aggiungi" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#handleMiglioraLibretto" text="Migliora libretto" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="cmbEliminaVoti" prefHeight="26.0" prefWidth="198.0" promptText="Elimina voti minori di: " GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button mnemonicParsing="false" onAction="#handleEliminaVoti" text="Elimina voti" GridPane.rowIndex="3" />
                </children>
             </GridPane>
          </children>

@@ -15,6 +15,9 @@ public class FXMLController {
 
 	private Libretto model;
 	
+	@FXML
+	private ComboBox<Integer> cmbEliminaVoti;
+	 
     @FXML
     private ResourceBundle resources;
 
@@ -70,6 +73,26 @@ public class FXMLController {
     }
     
     @FXML
+    void handleMiglioraLibretto(ActionEvent event) {
+    	Libretto l = model.miglioraLibretto();
+    	
+    	txtVoti.appendText("\nLibretto migliiorato:\n");
+    	for(Voto v: l.getVoti())
+    		txtVoti.appendText(v.toString() + "\n");
+    }
+    
+    @FXML
+    void handleEliminaVoti(ActionEvent event) {
+    	model.cancellaVotiMinodiDi(cmbEliminaVoti.getValue());
+    	
+    	List<Voto> voti = model.getVoti();
+    	txtVoti.clear();
+    	txtVoti.appendText("Hai superato " + voti.size() + " esami.\n");
+    	for(Voto v: voti)
+    		txtVoti.appendText(v.toString() + "\n");
+    }
+    
+    @FXML
     void initialize() {
         assert cmbPunti != null : "fx:id=\"cmbPunti\" was not injected: check your FXML file 'Scene.fxml'.";
         assert txtNome != null : "fx:id=\"txtNome\" was not injected: check your FXML file 'Scene.fxml'.";
@@ -80,6 +103,10 @@ public class FXMLController {
         	cmbPunti.getItems().add(p);
         }
         
+        cmbEliminaVoti.getItems().clear();
+        for(int pp=18; pp<=30; pp++) {
+        	cmbEliminaVoti.getItems().add(pp);
+        }
     }
 
 }

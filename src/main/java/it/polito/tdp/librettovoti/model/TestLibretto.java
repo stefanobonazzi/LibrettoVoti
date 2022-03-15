@@ -51,9 +51,11 @@ public class TestLibretto {
 		Libretto lib3 = lib.ordineDiVoto();
 		System.out.println(lib3);
 		
+		/*
 		System.out.println("\nVerifica punto 9:");
 		Libretto lib4 = lib.cancellaVotiMinodiDi(24);
 		System.out.println(lib4);
+		*/
 		
 	}
 
