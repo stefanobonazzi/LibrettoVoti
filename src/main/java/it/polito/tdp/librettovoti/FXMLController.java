@@ -43,7 +43,7 @@ public class FXMLController {
     	String nome = txtNome.getText();
     	Integer punti = cmbPunti.getValue();
     	
-    	//Controllo di validità
+    	//1.1 Controllo di validità
     	if(nome.equals("") || punti == null) {
     		txtStatus.setText("Errore: occorre inserie nome e voto.");
     		return;
@@ -70,20 +70,6 @@ public class FXMLController {
 
     public void setModel(Libretto model) {
     	this.model = model;
-    }
-    
-    @FXML
-    void handleMiglioraLibretto(ActionEvent event) {
-    	Libretto l = model.miglioraLibretto();
-    	
-    	txtVoti.appendText("\nLibretto migliiorato:\n");
-    	for(Voto v: l.getVoti())
-    		txtVoti.appendText(v.toString() + "\n");
-    }
-    
-    @FXML
-    void handleEliminaVoti(ActionEvent event) {
-    	model.cancellaVotiMinodiDi(cmbEliminaVoti.getValue());
     	
     	List<Voto> voti = model.getVoti();
     	txtVoti.clear();
@@ -91,6 +77,32 @@ public class FXMLController {
     	for(Voto v: voti)
     		txtVoti.appendText(v.toString() + "\n");
     }
+    
+   
+    @FXML
+    void handleMiglioraLibretto(ActionEvent event) {
+    	/*
+    	Libretto l = model.miglioraLibretto();
+    	
+    	txtVoti.appendText("\nLibretto migliiorato:\n");
+    	for(Voto v: l.getVoti())
+    		txtVoti.appendText(v.toString() + "\n");
+    	*/
+    }
+    
+    @FXML
+    void handleEliminaVoti(ActionEvent event) {
+    	/*
+    	model.cancellaVotiMinodiDi(cmbEliminaVoti.getValue());
+    	
+    	List<Voto> voti = model.getVoti();
+    	txtVoti.clear();
+    	txtVoti.appendText("Hai superato " + voti.size() + " esami.\n");
+    	for(Voto v: voti)
+    		txtVoti.appendText(v.toString() + "\n");
+    		*/
+    }
+    
     
     @FXML
     void initialize() {
@@ -107,6 +119,7 @@ public class FXMLController {
         for(int pp=18; pp<=30; pp++) {
         	cmbEliminaVoti.getItems().add(pp);
         }
+
     }
 
 }

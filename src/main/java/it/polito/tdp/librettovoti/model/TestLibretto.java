@@ -17,6 +17,7 @@ public class TestLibretto {
 		lib.add(new Voto("Diritto", 30));
 		lib.add(new Voto("Chimica", 29));
 		
+		/*
 		System.out.println("Verifica punto 1:");
 		System.out.println(lib);
 		
