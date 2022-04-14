@@ -1,14 +1,17 @@
 package it.polito.tdp.librettovoti.model;
 
+import java.time.LocalDate;
+
 public class Voto implements Comparable<Voto> {
 
 	private String nome;
 	private int punti;
-	private String data;
+	private LocalDate data;
 	
-	public Voto(String nome, int punti) {
+	public Voto(String nome, int punti, LocalDate data) {
 		this.nome = nome;
 		this.punti = punti;
+		this.data = data;
 	}
 
 	public String getNome() {
@@ -27,17 +30,17 @@ public class Voto implements Comparable<Voto> {
 		this.punti = punti;
 	}
 
-	public String getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 
 	@Override
 	public String toString() {
-		return nome+": "+punti;
+		return nome+": "+punti+" ("+ this.data.toString()+")";
 	}
 
 	@Override
